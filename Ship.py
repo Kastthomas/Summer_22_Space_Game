@@ -1,5 +1,5 @@
 ##Kurtis St. Thomas 6/25/2022
-##This defines the Planet class
+##This defines the Ship class
 
 
 import pyglet
@@ -13,5 +13,15 @@ class Ship(pyglet.sprite.Sprite):
         self.dx = dx
         self.dy = dy
         self.rotation = rotv
-        self.thrust = 200.0
         self.rot_spd = 100.0
+        self.thrust = 200.0
+        self.rot_left = False
+        self.rot_right = False
+        self.engines = False
+
+    #updates ships rotation
+    def update(self, dt):
+        if self.rot_left:
+                self.rotation -= self.rot_spd * dt
+        if self.rot_right:
+                self.rotation += self.rot_spd * dt
